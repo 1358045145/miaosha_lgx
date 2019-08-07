@@ -1,4 +1,4 @@
-package com.yonyou.miaosha;
+package com.yonyou.miaosha.constant;
 
 public interface RedisConstant {
 
