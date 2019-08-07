@@ -50,6 +50,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean checkLoginInfo(HttpServletResponse response,LoignVo loginVo) {
         //直接从token中取
+
+
+
         //token没有，走下面的环节
         if(loginVo == null){
             throw new UserException(CodeMessage.USER_NOTFOUND); //用户找不到

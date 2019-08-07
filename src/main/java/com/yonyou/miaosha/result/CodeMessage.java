@@ -8,7 +8,10 @@ public enum CodeMessage {
 
     USER_NOTFOUND(40001,"用户找不到"),
     MOBILE_NOTFOUND(40002,"手机号找不到"),
-    PASSWORD_NOTRIGHT(40003,"密码不正确");
+    PASSWORD_NOTRIGHT(40003,"密码不正确"),
+
+    GOODS_NOTFOUNT(50001,"商品列表找不到"),
+    GOODS_DEATIL_NOTFOUNT(50002,"商品详情不存在");
 
 
     private String msg;
