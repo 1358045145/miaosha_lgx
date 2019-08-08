@@ -1,7 +1,6 @@
 package com.yonyou.miaosha.interceptor;
 
 import com.yonyou.miaosha.constant.CookieConstant;
-import com.yonyou.miaosha.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

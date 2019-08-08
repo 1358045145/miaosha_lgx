@@ -22,4 +22,11 @@ public interface GoodsService {
      * @return
      */
     GoodsVo getGoodsVoById(Integer id);
+
+    /**
+     * 更新商品的库存量
+     * @param goods
+     * @return
+     */
+    public int updateGoodsStock(Goods goods);
 }

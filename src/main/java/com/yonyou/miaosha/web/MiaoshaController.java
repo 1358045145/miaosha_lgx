@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.lang.reflect.Array;
+
 @Controller
 @RequestMapping("/miaosha")
 public class MiaoshaController {
@@ -18,6 +20,7 @@ public class MiaoshaController {
 
     @RequestMapping("/do_miaosha")
     public String doMiaosha(Model model, User user, @RequestParam("goodsId")Integer goodsId){
+
 
         return "order_detail";  //秒杀成功
     }

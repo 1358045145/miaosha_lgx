@@ -1,5 +1,6 @@
 package com.yonyou.miaosha.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.yonyou.miaosha.constant.CookieConstant;
 import com.yonyou.miaosha.exception.UserException;
 import com.yonyou.miaosha.mapper.UserMapper;
@@ -9,6 +10,7 @@ import com.yonyou.miaosha.service.UserService;
 import com.yonyou.miaosha.utils.MD5Util;
 import com.yonyou.miaosha.vo.LoignVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
@@ -25,7 +27,7 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Autowired(required = false)
-
+    RedisTemplate<String,Object> redisTemplate;
 
     /**
      * 根据用户的ID查询用户
@@ -42,6 +44,8 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    //生成token
+    String token = UUID.randomUUID().toString().replace("-","");
     /**
      * 根据用户的登陆信息做检验
      * @param loginVo
@@ -50,9 +54,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean checkLoginInfo(HttpServletResponse response,LoignVo loginVo) {
         //直接从token中取
-
-
-
+        String userStr = (String) redisTemplate.opsForValue().get(token);
+        if (token != null){
+            User tokenUser = (User) JSON.parse(userStr);
+            //重置时间
+            addCookie(response,token,tokenUser);
+            return true;
+        }
         //token没有，走下面的环节
         if(loginVo == null){
             throw new UserException(CodeMessage.USER_NOTFOUND); //用户找不到
@@ -72,8 +80,6 @@ public class UserServiceImpl implements UserService {
             throw new UserException(CodeMessage.PASSWORD_NOTRIGHT); //密码不对
         }
         //校验成功
-        //生成token
-        String token = UUID.randomUUID().toString().replace("-","");
         //生成cookie
         addCookie(response,token,user);
         return true;
@@ -82,7 +88,8 @@ public class UserServiceImpl implements UserService {
 
     private void addCookie(HttpServletResponse response,String token,User user){
         //写入Redis中
-
+        String userStr = (String)JSON.toJSON(user);
+        redisTemplate.opsForValue().set(token,userStr);
         Cookie cookie = new Cookie(CookieConstant.COOKIE_NAME, token);
         cookie.setPath("/");
         cookie.setMaxAge(CookieConstant.EXPIRE);
