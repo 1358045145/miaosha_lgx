@@ -29,4 +29,11 @@ public interface GoodsService {
      * @return
      */
     public int updateGoodsStock(Goods goods);
+
+    /**
+     * 通过商品ID获得商品信息
+     * @param goodsId
+     * @return
+     */
+    public Goods getGoodsById(Integer goodsId);
 }

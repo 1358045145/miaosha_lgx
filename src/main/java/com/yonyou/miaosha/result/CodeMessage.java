@@ -13,11 +13,14 @@ public enum CodeMessage {
     GOODS_NOTFOUNT(50001,"商品列表找不到"),
     GOODS_DEATIL_NOTFOUNT(50002,"商品详情不存在"),
     GOODS_UPDATE_FAIL(50003,"商品更新失败"),
+    GOODS_NOT_HAVE_STOCKCOUNT(50004,"商品库存不足"),
 
     ORDER_INSERT_FAIL(60001,"订单插入失败"),
     MIAOASH_ORDER_INSERT_FAIL(60002,"秒杀订单插入失败"),
-    ORDER_CREATE_FAIL(60003,"订单创建失败");
+    ORDER_CREATE_FAIL(60003,"订单创建失败"),
 
+
+    MIAOSHA_REPEATED(70001,"不能重复秒杀");
 
 
 

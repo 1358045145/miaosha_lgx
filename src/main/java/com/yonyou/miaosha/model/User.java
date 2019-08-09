@@ -1,7 +1,9 @@
 package com.yonyou.miaosha.model;
 
 import lombok.Data;
+import tk.mybatis.mapper.annotation.KeySql;
 
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -9,6 +11,8 @@ import java.util.Date;
  */
 @Data
 public class User {
+    @Id
+    @KeySql(useGeneratedKeys = true)
     private Integer id;
     private String address;
     private String nickName;

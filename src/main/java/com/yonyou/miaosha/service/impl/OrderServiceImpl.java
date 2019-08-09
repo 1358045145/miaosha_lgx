@@ -7,7 +7,7 @@ import com.yonyou.miaosha.model.MiaoShaOrder;
 import com.yonyou.miaosha.model.Order;
 import com.yonyou.miaosha.model.User;
 import com.yonyou.miaosha.result.CodeMessage;
-import com.yonyou.miaosha.service.MiaoShaGoodsService;
+import com.yonyou.miaosha.service.MiaoshaOrderService;
 import com.yonyou.miaosha.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

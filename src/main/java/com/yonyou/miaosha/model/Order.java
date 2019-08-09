@@ -1,7 +1,9 @@
 package com.yonyou.miaosha.model;
 
 import lombok.Data;
+import tk.mybatis.mapper.annotation.KeySql;
 
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -10,6 +12,8 @@ import java.util.Date;
  */
 @Data
 public class Order {
+    @Id
+    @KeySql(useGeneratedKeys = true)
     private Integer id;
     private Integer userId;
     private Integer goodsId;

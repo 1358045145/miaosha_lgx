@@ -19,4 +19,7 @@ public interface GoodsMapper extends Mapper<Goods> {
 
     @Select("select g.*,mg.miaosha_price,mg.stock_count,mg.end_date,mg.start_date from miaosha_goods mg left join goods g on g.id = mg.goods_id where g.id = #{goodId}")
     GoodsVo getGoodsVoByGoodsId(@Param("goodsId")Integer goodsId);
+
+    @Select("select * from goods where id = #{goodsId}")
+    Goods getGoodsById(@Param("goodsId")Integer goodsId);
 }

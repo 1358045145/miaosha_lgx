@@ -41,4 +41,14 @@ public class GoodsServiceImpl implements GoodsService {
     public int updateGoodsStock(Goods goods) {
         return goodsMapper.updateByPrimaryKey(goods);
     }
+
+    /**
+     * 根据商品的ID查询商品
+     * @param goodsId
+     * @return
+     */
+    @Override
+    public Goods getGoodsById(Integer goodsId) {
+        return goodsMapper.getGoodsById(goodsId);
+    }
 }

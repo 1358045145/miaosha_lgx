@@ -6,7 +6,7 @@ import com.yonyou.miaosha.model.Order;
 import com.yonyou.miaosha.model.User;
 import com.yonyou.miaosha.result.CodeMessage;
 import com.yonyou.miaosha.service.GoodsService;
-import com.yonyou.miaosha.service.MiaoShaGoodsService;
+import com.yonyou.miaosha.service.MiaoshaGoodsService;
 import com.yonyou.miaosha.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  * 秒杀模块的service实现类
  */
 @Service
-public class MiaoShaGoodsServiceImpl implements MiaoShaGoodsService {
+public class MiaoshaGoodsServiceImpl implements MiaoshaGoodsService {
 
     @Autowired
     GoodsService goodsService;

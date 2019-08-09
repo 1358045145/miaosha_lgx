@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 /**
  * 秒杀模块的service
  */
-public interface MiaoShaGoodsService {
+public interface MiaoshaGoodsService {
 
     /**
      * 秒杀
